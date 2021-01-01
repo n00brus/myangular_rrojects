@@ -1,0 +1,13 @@
+<div class="category-block">
+
+  <div *ngFor="let category of categories">
+    <div (click)="selectCategory(category.name, $event)" class="category"
+      [ngStyle]="{backgroundColor: selectedCategory == category.name ? getcolor() : '' }">
+
+      {{category.name}}
+      <!-- <span *ngIf="selectedCategory == category.name"> (Selected)</span> -->
+    </div>
+  </div>
+</div>
+<div class="newCategory" (click)="addCategory()"></div>
+<input type="text" [(ngModel)]="newCategoryName" placeholder="Новая категория" class="newCategory-input">
