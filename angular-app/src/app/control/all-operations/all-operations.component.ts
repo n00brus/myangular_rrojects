@@ -21,9 +21,12 @@ export class AllOperationsComponent implements OnInit {
 
   ngOnInit(): void {}
   ngOnChanges(): void {
+    console.log('asdasd');
+
     this.filtercategories();
     this.filteroperations();
     this.categorylist();
+    console.log('asdasd');
   }
   filtercategories() {
     this.categories = this.allCategories.filter(
@@ -73,5 +76,13 @@ export class AllOperationsComponent implements OnInit {
     // console.log(something);
 
     return something.name;
+  }
+  getSelectedText() {
+    if (this.selectedType == 'profit') {
+      return 'Доход';
+    }
+    if (this.selectedType == 'consumption') {
+      return 'Расход';
+    }
   }
 }

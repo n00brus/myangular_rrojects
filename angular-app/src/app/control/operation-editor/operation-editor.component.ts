@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { OperationTypeCode } from '../models/category.model';
+import { Category, OperationTypeCode } from '../models/category.model';
 import { Operation } from '../models/operations.model';
 import { OperationService } from '../services/operation/operation.service';
 
@@ -9,7 +9,7 @@ import { OperationService } from '../services/operation/operation.service';
   styleUrls: ['./operation-editor.component.css'],
 })
 export class OperationEditorComponent implements OnInit {
-  @Input() selectedCategory: string;
+  @Input() selectedCategory: Category;
   @Input() selectedType: OperationTypeCode;
   @Input() set selectedOperation(operation: Operation) {
     this.Operation = operation;
@@ -27,7 +27,7 @@ export class OperationEditorComponent implements OnInit {
   addOperation(): void {
     this.newoperationobject = {
       type: this.selectedType,
-      category: this.selectedCategory,
+      category: this.selectedCategory.name,
       categoryid: Number,
       value: this.money,
       description: this.description,

@@ -11,7 +11,7 @@ import { CategoriesService } from '../services/categories/categories.service';
 export class CategoriesComponent implements OnInit {
   @Input() allCategories: Category[];
   @Input() selectedType: OperationTypeCode = 'profit';
-  @Input() selectedCategory: string;
+  @Input() selectedCategory: Category;
   @Output() changeSelectedCategory = new EventEmitter();
   @Output() newCategory = new EventEmitter();
   @Output() deletedCategory = new EventEmitter();

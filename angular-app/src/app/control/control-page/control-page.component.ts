@@ -13,7 +13,7 @@ import { allCategories } from '../data/categories.data';
 })
 export class ControlPageComponent implements OnInit {
   selectedTypeCode: OperationTypeCode;
-  selectedCategory;
+  selectedCategory: Category;
   categories: Category[] = [];
   allOperations: Operation[] = [];
   selectedcategoryid: number;
@@ -35,6 +35,7 @@ export class ControlPageComponent implements OnInit {
       this.categories = categories;
       this.allOperations = allOperations;
       this.changeSeletcedType('profit');
+      console.log(32);
     });
   }
 
@@ -42,13 +43,13 @@ export class ControlPageComponent implements OnInit {
     this.selectedTypeCode = type;
     this.categories.find((e) => {
       if (e.type == this.selectedTypeCode) {
-        return (this.selectedCategory = e.name);
+        return (this.selectedCategory = e);
       }
     });
     console.log(this.categories);
     // this.categories = [...this.categories];
   }
-  changeSelectedCategory(name: string) {
+  changeSelectedCategory(name: Category) {
     this.selectedCategory = name;
   }
   addedNewOperation(name) {
@@ -62,7 +63,7 @@ export class ControlPageComponent implements OnInit {
     // this.operationsService.addOperation(name).then((newOperation) => {
     //   this.allOperations = [...this.allOperations, newOperation];
     // });
-    // console.log(name);
+    console.log(name);
 
     this.categories.forEach((category) => {
       if (category.name == name.category) {
@@ -101,7 +102,7 @@ export class ControlPageComponent implements OnInit {
     console.log(operation);
     this.categories.find((e) => {
       if (e.idCategory == operation.idCategory) {
-        return (this.selectedCategory = e.name);
+        return (this.selectedCategory = e);
       }
     });
     this.selectedOperation = operation;
@@ -124,7 +125,7 @@ export class ControlPageComponent implements OnInit {
     if ((this.selectedcategoryid = idDeletedCategory)) {
       this.categories.find((e) => {
         if (e.type == this.selectedTypeCode) {
-          return (this.selectedCategory = e.name);
+          return (this.selectedCategory = e);
         }
       });
     }

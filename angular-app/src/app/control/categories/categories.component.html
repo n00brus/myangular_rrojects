@@ -1,8 +1,8 @@
 <div class="category-block">
 
   <div *ngFor="let category of categories">
-    <div (click)="selectCategory(category.name, $event)" class="category"
-      [ngStyle]="{backgroundColor: selectedCategory == category.name ? getcolor() : '' }">
+    <div (click)="selectCategory(category, $event)" class="category"
+      [ngStyle]="{backgroundColor: selectedCategory.name == category.name ? getcolor() : '' }">
       <span>{{category.name}}</span>
 
       <!-- <span *ngIf="selectedCategory == category.name"> (Selected)</span> -->

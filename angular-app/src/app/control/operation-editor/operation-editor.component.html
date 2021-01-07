@@ -1,6 +1,6 @@
 <div class="mainblock"
     [ngStyle]="{background: selectedType == 'profit' ? 'linear-gradient(234.51deg, #148BE7 0%, #26ECFD 100%)' : 'red' }">
-    <div class="mainblock-text">{{this.selectedCategory}}</div>
+    <div class="mainblock-text">{{this.selectedCategory.name}}</div>
 
     <input type="number" [(ngModel)]="money" class="mainblock-input">
 
