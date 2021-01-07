@@ -56,4 +56,10 @@ export const allOperations: Operation[] = [
     value: 2000,
     description: 'Cнова получил зп',
   },
+  {
+    idOperation: 7,
+    idCategory: 6,
+    value: 2000,
+    description: 'Cнова получил премию',
+  },
 ];

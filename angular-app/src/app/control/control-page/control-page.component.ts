@@ -12,8 +12,8 @@ import { allCategories } from '../data/categories.data';
   styleUrls: ['./control-page.component.scss'],
 })
 export class ControlPageComponent implements OnInit {
-  selectedTypeCode: OperationTypeCode = 'profit';
-  selectedCategory = 'Зарплата';
+  selectedTypeCode: OperationTypeCode;
+  selectedCategory;
   categories: Category[] = [];
   allOperations: Operation[] = [];
   selectedcategoryid: number;
@@ -34,39 +34,52 @@ export class ControlPageComponent implements OnInit {
     }).subscribe(({ categories, allOperations }) => {
       this.categories = categories;
       this.allOperations = allOperations;
+      this.changeSeletcedType('profit');
     });
   }
 
   changeSeletcedType(type: OperationTypeCode) {
     this.selectedTypeCode = type;
-    if (type == 'consumption') {
-      this.selectedCategory = 'Бензин';
-    }
-    if (type == 'profit') {
-      this.selectedCategory = 'Зарплата';
-    }
+    this.categories.find((e) => {
+      if (e.type == this.selectedTypeCode) {
+        return (this.selectedCategory = e.name);
+      }
+    });
+    console.log(this.categories);
     // this.categories = [...this.categories];
   }
   changeSelectedCategory(name: string) {
     this.selectedCategory = name;
   }
   addedNewOperation(name) {
+    // this.categories.forEach((category) => {
+    //   if (category.name == name.category) {
+    //     this.selectedcategoryid = category.idCategory;
+    //   }
+    // });
+    // name.categoryid = this.selectedcategoryid;
+
+    // this.operationsService.addOperation(name).then((newOperation) => {
+    //   this.allOperations = [...this.allOperations, newOperation];
+    // });
+    // console.log(name);
+
     this.categories.forEach((category) => {
       if (category.name == name.category) {
         this.selectedcategoryid = category.idCategory;
-      }
-    });
-    name.categoryid = this.selectedcategoryid;
+        name.categoryid = this.selectedcategoryid;
 
-    this.operationsService.addOperation(name).then((newOperation) => {
-      this.allOperations = [...this.allOperations, newOperation];
+        this.operationsService.addOperation(name).then((newOperation) => {
+          this.allOperations = [...this.allOperations, newOperation];
+        });
+        return;
+      }
     });
   }
   addnewCategory(name) {
     console.log(name.name);
     for (let i = 0; i < this.categories.length; i++) {
       if (name.name == this.categories[i].name) {
-        console.log('fdfd');
         return;
       }
     }
@@ -86,8 +99,34 @@ export class ControlPageComponent implements OnInit {
   }
   selectOperation(operation) {
     console.log(operation);
-    allCategories.find;
-    this.changeSelectedCategory(operation.idCategory);
+    this.categories.find((e) => {
+      if (e.idCategory == operation.idCategory) {
+        return (this.selectedCategory = e.name);
+      }
+    });
     this.selectedOperation = operation;
+  }
+  deleteCategory(name) {
+    console.log(name);
+    this.categoriesService.deleteCategory(name).then((deletedCategory) => {
+      this.categories = this.categories.filter(
+        (n) => n.idCategory != deletedCategory
+      );
+      this.allOperations = this.allOperations.filter((operation) => {
+        if (operation.idCategory != name) {
+          return operation;
+        }
+      });
+      this.selectCategory(name);
+    });
+  }
+  selectCategory(idDeletedCategory: number = 0) {
+    if ((this.selectedcategoryid = idDeletedCategory)) {
+      this.categories.find((e) => {
+        if (e.type == this.selectedTypeCode) {
+          return (this.selectedCategory = e.name);
+        }
+      });
+    }
   }
 }

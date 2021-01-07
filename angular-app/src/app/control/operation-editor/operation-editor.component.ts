@@ -34,6 +34,7 @@ export class OperationEditorComponent implements OnInit {
     };
     this.money = 0;
     this.description = '';
+
     this.newOperation.emit(this.newoperationobject);
 
     // this.operationService.addOperation(this.newOperation);

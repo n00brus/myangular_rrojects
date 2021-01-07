@@ -14,6 +14,7 @@ export class CategoriesComponent implements OnInit {
   @Input() selectedCategory: string;
   @Output() changeSelectedCategory = new EventEmitter();
   @Output() newCategory = new EventEmitter();
+  @Output() deletedCategory = new EventEmitter();
   newCategoryName: string;
   categories: Category[] = [];
 
@@ -30,12 +31,12 @@ export class CategoriesComponent implements OnInit {
       (c) => c.type === this.selectedType
     );
   }
-  selectCategory(name: string, ev): void {
+  selectCategory(name, ev): void {
     this.changeSelectedCategory.emit(name);
   }
   getcolor() {
     if (this.selectedType == 'consumption') {
-      return 'red';
+      return 'lightcoral';
     }
     if (this.selectedType == 'profit') {
       return '#01D9F2';
@@ -49,5 +50,8 @@ export class CategoriesComponent implements OnInit {
     });
 
     // this.operationService.addOperation(this.newOperation);
+  }
+  deleteCategory(name) {
+    this.deletedCategory.emit(name);
   }
 }

@@ -8,11 +8,16 @@
     padding-top: 20px;
     text-align: center;
     color: #414141;
+    font-size: 12px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 .category-block{
     width: 150px;
-    height: 200px;
+    height: 235px;
     font-size: 8px;
 display: flex;
 flex-direction: column;
@@ -20,15 +25,28 @@ justify-content: space-between;
 align-items: center;
 // flex-wrap: wrap;
 color: #414141;
+overflow: auto;
+
 }
 .newCategory{
-    width: 20px;
-    height: 20px;
-    background-color: lightblue;
+
+ background-image: url(../images/plus.jpeg);
+ height: 10px;
+ width: 10px;
+ background-repeat: no-repeat;
+ background-size: contain;
+
     margin: 0 auto;
     
 }
 .newCategory-input{
     
     font-size: 12px;
+}
+.deleteCategory{
+    background-image: url(../images/cancel.jpeg);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { allCategories } from '../data/categories.data';
 import { Category, OperationTypeCode } from '../models/category.model';
 import { Operation } from '../models/operations.model';
 import { OperationService } from '../services/operation/operation.service';
@@ -56,5 +57,21 @@ export class AllOperationsComponent implements OnInit {
   }
   selectOperation(ev, operation) {
     this.selectedOperation.emit(operation);
+  }
+  findCategory(operation) {
+    // console.log(operation);
+    // console.log(this.allCategories);
+    // console.log(this.categories);
+
+    let something = this.categories.find((e) => {
+      // console.log(e);
+
+      if (e.idCategory == operation.idCategory) {
+        return e;
+      }
+    });
+    // console.log(something);
+
+    return something.name;
   }
 }

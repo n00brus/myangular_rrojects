@@ -1,13 +1,14 @@
 .allOperations-block {
   padding: 20px;
   height: 300px;
-  
+  /* overflow: auto; */
+   /* word-wrap: break-word; */
 }
 .allOperations-header{
   font-style: normal;
 font-weight: 300;
 font-size: 12px;
-
+height: 50px;
 color: #A5ABAE;
 }
 .allOperations-subheader{
@@ -18,13 +19,14 @@ font-size: 10px;
 color: #A5ABAE;
 }
 .allOperations{
- 
+  overflow: auto;
+  height: 200px;
 }
 .operation-text{
   width: 100%;
 }
 .operation{
-  height: 50px;
+  height: 30px;
   display: flex;
   align-items: center;
 }
@@ -57,4 +59,9 @@ padding-top: 5px;
 }
 .deleteoperation{
   font-size: 8px;
+  background-image: url(../images/cancel.jpeg);
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  background-size: contain;
 }

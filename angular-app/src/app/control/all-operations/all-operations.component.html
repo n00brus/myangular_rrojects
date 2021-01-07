@@ -1,24 +1,27 @@
 <div class="allOperations-block">
-    <div class="allOperations-header">Ваши {{this.selectedType}}ы</div>
-    <span class="allOperations-subheader">Выберите категорию </span>
-    <select (change)="categorylist()" [(ngModel)]="categoryid">
-        <option value="-1" selected>Выбрать...</option>
-        <option *ngFor="let category of categories" value="{{category.idCategory}}">{{category.name}}</option>
-    </select>
 
-    <div *ngFor="let operation of operations" class="allOperations">
-        <div class="operation" (click)="selectOperation($event,operation)">
-            <div class="operation-text">
-                <div class="operation-text-header">{{allCategories[operation.idCategory-1].name}}</div>
+    <div class="allOperations-header">Ваши {{this.selectedType}}ы <br>
+        <span class="allOperations-subheader">Выберите категорию </span>
+        <select (change)="categorylist()" [(ngModel)]="categoryid">
+            <option value="-1" selected>Выбрать...</option>
+            <option *ngFor="let category of categories" value="{{category.idCategory}}">{{category.name}}</option>
+        </select>
+    </div>
+    <div class="allOperations">
+        <div *ngFor="let operation1 of operations">
+            <div class="operation" (click)="selectOperation($event,operation1)">
+                <div class="operation-text">
+                    <div class="operation-text-header">{{findCategory(operation1)}}</div>
 
 
-                <div class="operation-text-description">{{operation.description}}</div>
+                    <div class="operation-text-description">{{operation1.description}}</div>
 
+                </div>
+                <span class="deleteoperation" (click)="deleteOperations($event)"
+                    dataCategoryid="{{operation1.idOperation}}"></span>
+
+                <div class="operation-value">{{operation1.value}} грн </div>
             </div>
-            <button class="deleteoperation" (click)="deleteOperations($event)"
-                dataCategoryid="{{operation.idOperation}}">delete</button>
-
-            <div class="operation-value">{{operation.value}} грн </div>
         </div>
     </div>
 </div>

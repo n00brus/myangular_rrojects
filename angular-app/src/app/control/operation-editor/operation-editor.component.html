@@ -5,7 +5,8 @@
     <input type="number" [(ngModel)]="money" class="mainblock-input">
 
 
-    <div><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="mainblock-text"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="M6.75 3.9375V14.0625" stroke="white" stroke-opacity="0.88" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
             <path
@@ -18,6 +19,6 @@
 <div class="description">
     <button (click)="addOperation()" class="input-button">ADD</button>
     <div class="description-text">Описание</div>
-    <input type="text" [(ngModel)]="description" class="description-input">
+    <textarea rows="3" [(ngModel)]="description" class="description-input"></textarea>
 
 </div>

@@ -24,6 +24,14 @@ export class CategoriesService {
       resolve(newCategory);
     });
   }
+  deleteCategory(categoryid): Promise<number> {
+    return new Promise((resolve) => {
+      this.categories = this.categories.filter(
+        (n) => n.idCategory != categoryid
+      );
+      resolve(categoryid);
+    });
+  }
   get newCategoryId(): number {
     return this.categories.length
       ? this.categories[this.categories.length - 1].idCategory + 1

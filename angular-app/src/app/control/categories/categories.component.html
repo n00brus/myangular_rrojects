@@ -3,11 +3,15 @@
   <div *ngFor="let category of categories">
     <div (click)="selectCategory(category.name, $event)" class="category"
       [ngStyle]="{backgroundColor: selectedCategory == category.name ? getcolor() : '' }">
+      <span>{{category.name}}</span>
 
-      {{category.name}}
       <!-- <span *ngIf="selectedCategory == category.name"> (Selected)</span> -->
+      <div (click)="deleteCategory(category.idCategory, $event)" class="deleteCategory"></div>
     </div>
+
+
   </div>
 </div>
-<div class="newCategory" (click)="addCategory()"></div>
+<div class="newCategory" (click)="addCategory()">
+</div>
 <input type="text" [(ngModel)]="newCategoryName" placeholder="Новая категория" class="newCategory-input">
