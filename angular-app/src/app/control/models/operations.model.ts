@@ -6,7 +6,7 @@ import { OperationTypeCode } from './category.model';
 //   description: string;
 // }
 export interface Operation {
-  idOperation: number;
+  id: number;
   idCategory: number;
   value: number;
   description: string;

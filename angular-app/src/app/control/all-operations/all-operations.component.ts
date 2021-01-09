@@ -21,12 +21,9 @@ export class AllOperationsComponent implements OnInit {
 
   ngOnInit(): void {}
   ngOnChanges(): void {
-    console.log('asdasd');
-
     this.filtercategories();
     this.filteroperations();
     this.categorylist();
-    console.log('asdasd');
   }
   filtercategories() {
     this.categories = this.allCategories.filter(
@@ -37,7 +34,7 @@ export class AllOperationsComponent implements OnInit {
     this.operations = [];
     this.categories.forEach((category) => {
       this.allOperations.forEach((operation) => {
-        if (category.idCategory == operation.idCategory) {
+        if (category.id == operation.idCategory) {
           this.operations = [...this.operations, operation];
         }
       });
@@ -69,7 +66,7 @@ export class AllOperationsComponent implements OnInit {
     let something = this.categories.find((e) => {
       // console.log(e);
 
-      if (e.idCategory == operation.idCategory) {
+      if (e.id == operation.idCategory) {
         return e;
       }
     });

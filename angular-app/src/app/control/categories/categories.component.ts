@@ -43,15 +43,13 @@ export class CategoriesComponent implements OnInit {
     }
   }
   addCategory(): void {
-    console.log(this.newCategoryName);
-
     this.newCategory.emit({
       name: this.newCategoryName,
     });
 
     // this.operationService.addOperation(this.newOperation);
   }
-  deleteCategory(name) {
-    this.deletedCategory.emit(name);
+  deleteCategory(idDeletedCategory) {
+    this.deletedCategory.emit(idDeletedCategory);
   }
 }

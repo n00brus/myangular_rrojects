@@ -4,7 +4,7 @@
         <span class="allOperations-subheader">Выберите категорию </span>
         <select (change)="categorylist()" [(ngModel)]="categoryid">
             <option value="-1" selected>Выбрать...</option>
-            <option *ngFor="let category of categories" value="{{category.idCategory}}">{{category.name}}</option>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
         </select>
     </div>
     <div class="allOperations">
@@ -18,7 +18,7 @@
 
                 </div>
                 <span class="deleteoperation" (click)="deleteOperations($event)"
-                    dataCategoryid="{{operation1.idOperation}}"></span>
+                    dataCategoryid="{{operation1.id}}"></span>
 
                 <div class="operation-value">{{operation1.value}} грн </div>
             </div>

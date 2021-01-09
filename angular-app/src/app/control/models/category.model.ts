@@ -1,8 +1,7 @@
 export type OperationTypeCode = 'profit' | 'consumption';
 
 export interface Category {
-  idCategory: number;
+  id: number;
   type: OperationTypeCode;
   name: string;
-  selected: boolean;
 }

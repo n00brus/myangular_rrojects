@@ -8,6 +8,8 @@ import { AllOperationsComponent } from './all-operations/all-operations.componen
 import { FormsModule } from '@angular/forms';
 import { CategoriesService } from './services/categories/categories.service';
 import { OperationService } from './services/operation/operation.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,15 @@ import { OperationService } from './services/operation/operation.service';
     OperationEditorComponent,
     AllOperationsComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  // HttpClientModule
+  imports: [
+    CommonModule,
+    FormsModule,
+    BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule,
+  ],
   exports: [ControlPageComponent],
-  providers: [CategoriesService, OperationService],
+  providers: [CategoriesService, OperationService, HttpClientModule],
 })
 export class ControlModule {}

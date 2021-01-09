@@ -16,7 +16,6 @@ export class ControlPageComponent implements OnInit {
   selectedCategory: Category;
   categories: Category[] = [];
   allOperations: Operation[] = [];
-  selectedcategoryid: number;
   newCategory: Category;
   selectedOperation: Operation;
   constructor(
@@ -34,8 +33,8 @@ export class ControlPageComponent implements OnInit {
     }).subscribe(({ categories, allOperations }) => {
       this.categories = categories;
       this.allOperations = allOperations;
+
       this.changeSeletcedType('profit');
-      console.log(32);
     });
   }
 
@@ -46,7 +45,6 @@ export class ControlPageComponent implements OnInit {
         return (this.selectedCategory = e);
       }
     });
-    console.log(this.categories);
     // this.categories = [...this.categories];
   }
   changeSelectedCategory(name: Category) {
@@ -67,62 +65,73 @@ export class ControlPageComponent implements OnInit {
 
     this.categories.forEach((category) => {
       if (category.name == name.category) {
-        this.selectedcategoryid = category.idCategory;
-        name.categoryid = this.selectedcategoryid;
+        this.selectedCategory.id = category.id;
+        name.categoryid = this.selectedCategory.id;
 
-        this.operationsService.addOperation(name).then((newOperation) => {
-          this.allOperations = [...this.allOperations, newOperation];
-        });
+        this.operationsService
+          .addOperation(
+            name,
+            this.allOperations[this.allOperations.length - 1].id + 1
+          )
+          .then((newOperation) => {
+            this.allOperations = [...this.allOperations, newOperation];
+          });
         return;
       }
     });
   }
-  addnewCategory(name) {
-    console.log(name.name);
+  addnewCategory(newcategory) {
     for (let i = 0; i < this.categories.length; i++) {
-      if (name.name == this.categories[i].name) {
+      if (newcategory.name == this.categories[i].name) {
         return;
       }
     }
 
-    name.type = this.selectedTypeCode;
-    this.categoriesService.addCategory(name).then((newCategory) => {
-      this.categories = [...this.categories, newCategory];
-    });
+    newcategory.type = this.selectedTypeCode;
+    this.categoriesService
+      .addCategory(
+        newcategory,
+        this.categories[this.categories.length - 1].id + 1
+      )
+      .then((newCategory) => {
+        this.categories = [...this.categories, newCategory];
+      });
     console.log(this.categories);
   }
   deletedOperation(name) {
     this.operationsService.deleteOperation(name).then((deletedOperation) => {
       this.allOperations = this.allOperations.filter(
-        (n) => n.idOperation != deletedOperation
+        (n) => n.id != deletedOperation
       );
     });
   }
   selectOperation(operation) {
     console.log(operation);
     this.categories.find((e) => {
-      if (e.idCategory == operation.idCategory) {
+      if (e.id == operation.idCategory) {
         return (this.selectedCategory = e);
       }
     });
     this.selectedOperation = operation;
   }
-  deleteCategory(name) {
+  deleteCategory(idDeletedCategory) {
     console.log(name);
-    this.categoriesService.deleteCategory(name).then((deletedCategory) => {
-      this.categories = this.categories.filter(
-        (n) => n.idCategory != deletedCategory
-      );
-      this.allOperations = this.allOperations.filter((operation) => {
-        if (operation.idCategory != name) {
-          return operation;
-        }
+    this.categoriesService
+      .deleteCategory(idDeletedCategory)
+      .then((deletedCategory) => {
+        this.categories = this.categories.filter(
+          (n) => n.id != deletedCategory
+        );
+        this.allOperations = this.allOperations.filter((operation) => {
+          if (operation.idCategory != idDeletedCategory) {
+            return operation;
+          }
+        });
+        this.selectCategory(idDeletedCategory);
       });
-      this.selectCategory(name);
-    });
   }
   selectCategory(idDeletedCategory: number = 0) {
-    if ((this.selectedcategoryid = idDeletedCategory)) {
+    if ((this.selectedCategory.id = idDeletedCategory)) {
       this.categories.find((e) => {
         if (e.type == this.selectedTypeCode) {
           return (this.selectedCategory = e);
