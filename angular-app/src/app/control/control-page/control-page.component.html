@@ -1,17 +1,36 @@
-<app-type-switcher (changeSelectedType)="changeSeletcedType($event)" [selectedType]="selectedTypeCode">
-</app-type-switcher>
 <div class="app">
-    <app-categories (changeSelectedCategory)="changeSelectedCategory($event)" (newCategory)="addnewCategory($event)"
-        (deletedCategory)="deleteCategory($event)" [selectedType]="selectedTypeCode"
-        [selectedCategory]="selectedCategory" [allCategories]="categories">
+  <app-type-switcher
+    (changeSelectedType)="changeSeletcedType($event)"
+    [selectedType]="selectedTypeCode"
+  >
+  </app-type-switcher>
+  <div class="app-main">
+    <app-categories
+      (changeSelectedCategory)="changeSelectedCategory($event)"
+      (newCategory)="addnewCategory($event)"
+      (deletedCategory)="deleteCategory($event)"
+      [selectedType]="selectedTypeCode"
+      [selectedCategory]="selectedCategory"
+      [allCategories]="categories"
+    >
     </app-categories>
 
     <!-- <app-type-switcher (changeSelectedType)="changeSeletcedType($event)" [selectedType]="selectedTypeCode">
     </app-type-switcher> -->
-    <app-operation-editor (newOperation)="addedNewOperation($event)" [selectedCategory]="selectedCategory"
-        [selectedType]="selectedTypeCode" [selectedOperation]="selectedOperation"></app-operation-editor>
+    <app-operation-editor
+      (newOperation)="addedNewOperation($event)"
+      [selectedCategory]="selectedCategory"
+      [selectedType]="selectedTypeCode"
+      [selectedOperation]="selectedOperation"
+    ></app-operation-editor>
 
-    <app-all-operations [selectedType]="selectedTypeCode" [allOperations]="allOperations" [allCategories]="categories"
-        (deleteOperation)="deletedOperation($event)" (selectedOperation)="selectOperation($event)">
+    <app-all-operations
+      [selectedType]="selectedTypeCode"
+      [allOperations]="allOperations"
+      [allCategories]="categories"
+      (deleteOperation)="deletedOperation($event)"
+      (selectedOperation)="selectOperation($event)"
+    >
     </app-all-operations>
+  </div>
 </div>

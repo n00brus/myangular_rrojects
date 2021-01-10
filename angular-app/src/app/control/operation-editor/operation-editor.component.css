@@ -1,73 +1,70 @@
-*{box-sizing: border-box;}
-.mainblock{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 225px;
-    height: 190px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    
-    
-    /* background: linear-gradient(234.51deg, #148BE7 0%, #26ECFD 100%); */
-    box-shadow: 0px 0px 50px rgba(20, 139, 231, 0.5);
+* {
+  box-sizing: border-box;
 }
-.description{
-    position: relative;
-    width: 225px;
-height: 78px;
-padding: 20px 10px 10px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+.mainblock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 400px;
+  height: 350px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
+  /* background: linear-gradient(234.51deg, #148BE7 0%, #26ECFD 100%); */
+  box-shadow: 0px 0px 50px rgba(20, 139, 231, 0.5);
+}
+.description {
+  position: relative;
+  width: 400px;
+  height: 150px;
+  padding: 20px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-background: linear-gradient(180deg, #F2F2F2 10.61%, #F8F8F8 100%);
+  background: linear-gradient(180deg, #f2f2f2 10.61%, #f8f8f8 100%);
 }
-.description-text{
-    
-    font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 14px;
-color: #AFBFCA;
+.description-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 14px;
+  color: #afbfca;
 }
-.description-input{
-    font-size: 8px;
-    color: black;
-    border: none;
-    border-bottom: 1px solid black;
-background: none;
-width: 100%;
+.description-input {
+  font-size: 15px;
+  color: black;
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  width: 100%;
 }
-.mainblock-text{
-    font-style: normal;
-font-weight: normal;
-font-size: 9px;
-line-height: 11px;
-color: #AEE5FF;
-text-align: center;
+.mainblock-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 11px;
+  color: #aee5ff;
+  text-align: center;
 }
-.mainblock-input{
-    font-size: 25px;
+.mainblock-input {
+  font-size: 25px;
 
-color: #FFFFFF;
-border: none;
-border-bottom: 1px solid #FFFFFF;
-background: none;
-width: 70%;
-
+  color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  background: none;
+  width: 70%;
 }
-.input-button{
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    background-color: white;
-    border: none;
-    position: absolute;
-    top: -20px;
-    right: 30px;
-
+.input-button {
+  border-radius: 50%;
+  font-size: 15px;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border: none;
+  position: absolute;
+  top: -20px;
+  right: 30px;
 }

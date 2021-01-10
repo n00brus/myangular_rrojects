@@ -1,67 +1,71 @@
 .allOperations-block {
   padding: 20px;
-  height: 300px;
+  height: 700px;
+  width: 300px;
   /* overflow: auto; */
-   /* word-wrap: break-word; */
+  /* word-wrap: break-word; */
 }
-.allOperations__header{
+.allOperations__header {
   font-style: normal;
-font-weight: 300;
-font-size: 12px;
-height: 50px;
-color: #A5ABAE;
+  font-weight: 300;
+  font-size: 25px;
+  height: 60px;
+  color: #a5abae;
 }
-.allOperations__subheader{
+.allOperations__subheader {
   font-style: normal;
-font-weight: 300;
-font-size: 10px;
+  font-weight: 300;
+  font-size: 20px;
 
-color: #A5ABAE;
+  color: #a5abae;
 }
-.allOperations{
+.allOperations {
   overflow: auto;
-  height: 200px;
+  height: 550px;
 }
-.operation-text{
+.operation-text {
   width: 100%;
 }
-.operation{
-  height: 30px;
+.operation {
+  height: 70px;
   display: flex;
   align-items: center;
 }
-.operation-text-header{
+.operation-text-header {
   font-style: normal;
-font-weight: normal;
-font-size: 8px;
-line-height: 9px;
-color: #414141;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 19px;
+  color: #414141;
 }
-.operation-text-description{
+.operation-text-description {
   font-style: normal;
-font-weight: normal;
-font-size: 7px;
-line-height: 8px;
-color: #929292;
-padding-top: 5px;
-
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: #929292;
+  padding-top: 5px;
 }
-.operation-value{
+.operation-value {
   font-style: normal;
-font-weight: 500;
-font-size: 10px;
-line-height: 12px;
-color: #92D8EE;
-padding-top: 5px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 12px;
+  color: #92d8ee;
+  padding-top: 5px;
 }
-.operation:hover{
-  background: linear-gradient(90deg, #EDF8FF 6.71%, rgba(220, 239, 253, 0.07) 102.2%);
+.operation:hover {
+  background: linear-gradient(
+    90deg,
+    #edf8ff 6.71%,
+    rgba(220, 239, 253, 0.07) 102.2%
+  );
 }
-.deleteoperation{
+.deleteoperation {
   font-size: 8px;
   background-image: url(../images/cancel.jpeg);
   background-repeat: no-repeat;
-  width: 15px;
-  height: 15px;
+  width: 35px;
+  height: 35px;
   background-size: contain;
 }
