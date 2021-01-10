@@ -1,14 +1,15 @@
 <div class="someclass">
 
+  <div *ngFor="let type of types" (click)="selectType(type.code)" class="type" [ngStyle]="{ color: getcolor(type)}">
 
-  <div (click)="selectType('profit', $event)" class="type"
+    {{ type.title }}
+  </div>
+  <!-- <div (click)="selectType('profit')" class="type"
     [ngStyle]="{ color: selectedType == 'profit' ? '#01D9F2' : '#AFBFCA' }">
     Доход
-    <!-- <span *ngIf="selectedType === 'profit'">(SELECTED)</span> -->
   </div>
-  <div (click)="selectType('consumption', $event)" class="type"
+  <div (click)="selectType('consumption')" class="type"
     [ngStyle]="{ color: selectedType == 'consumption' ? 'red' : '#AFBFCA' }">
     Расход
-    <!-- <span *ngIf="selectedType === 'consumption'">(SELECTED)</span> -->
-  </div>
+  </div> -->
 </div>

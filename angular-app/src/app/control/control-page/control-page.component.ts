@@ -5,7 +5,6 @@ import { Operation } from '../models/operations.model';
 import { CategoriesService } from '../services/categories/categories.service';
 import { OperationService } from '../services/operation/operation.service';
 import { Category } from '../models/category.model';
-import { allCategories } from '../data/categories.data';
 @Component({
   selector: 'app-control-page',
   templateUrl: './control-page.component.html',
@@ -45,40 +44,21 @@ export class ControlPageComponent implements OnInit {
         return (this.selectedCategory = e);
       }
     });
-    // this.categories = [...this.categories];
   }
   changeSelectedCategory(name: Category) {
     this.selectedCategory = name;
   }
-  addedNewOperation(name) {
-    // this.categories.forEach((category) => {
-    //   if (category.name == name.category) {
-    //     this.selectedcategoryid = category.idCategory;
-    //   }
-    // });
-    // name.categoryid = this.selectedcategoryid;
-
-    // this.operationsService.addOperation(name).then((newOperation) => {
-    //   this.allOperations = [...this.allOperations, newOperation];
-    // });
-    console.log(name);
-
-    this.categories.forEach((category) => {
-      if (category.name == name.category) {
-        this.selectedCategory.id = category.id;
-        name.categoryid = this.selectedCategory.id;
-
-        this.operationsService
-          .addOperation(
-            name,
-            this.allOperations[this.allOperations.length - 1].id + 1
-          )
-          .then((newOperation) => {
-            this.allOperations = [...this.allOperations, newOperation];
-          });
-        return;
-      }
-    });
+  addedNewOperation(operation) {
+    // this.selectedCategory.id = category.id;
+    this.operationsService
+      .addOperation(
+        operation,
+        this.allOperations[this.allOperations.length - 1].id + 1
+      )
+      .subscribe((newOperation) => {
+        this.allOperations = [...this.allOperations, newOperation];
+      });
+    return;
   }
   addnewCategory(newcategory) {
     for (let i = 0; i < this.categories.length; i++) {
@@ -86,27 +66,27 @@ export class ControlPageComponent implements OnInit {
         return;
       }
     }
-
     newcategory.type = this.selectedTypeCode;
     this.categoriesService
       .addCategory(
         newcategory,
         this.categories[this.categories.length - 1].id + 1
       )
-      .then((newCategory) => {
+      .subscribe((newCategory) => {
         this.categories = [...this.categories, newCategory];
       });
     console.log(this.categories);
   }
-  deletedOperation(name) {
-    this.operationsService.deleteOperation(name).then((deletedOperation) => {
-      this.allOperations = this.allOperations.filter(
-        (n) => n.id != deletedOperation
-      );
-    });
+  deletedOperation(idoperation: number) {
+    this.operationsService
+      .deleteOperation(idoperation)
+      .subscribe((deletedOperation) => {
+        this.allOperations = this.allOperations.filter(
+          (n) => n.id != idoperation
+        );
+      });
   }
   selectOperation(operation) {
-    console.log(operation);
     this.categories.find((e) => {
       if (e.id == operation.idCategory) {
         return (this.selectedCategory = e);
@@ -114,13 +94,12 @@ export class ControlPageComponent implements OnInit {
     });
     this.selectedOperation = operation;
   }
-  deleteCategory(idDeletedCategory) {
-    console.log(name);
+  deleteCategory(idDeletedCategory: number) {
     this.categoriesService
       .deleteCategory(idDeletedCategory)
-      .then((deletedCategory) => {
+      .subscribe((deletedCategory) => {
         this.categories = this.categories.filter(
-          (n) => n.id != deletedCategory
+          (n) => n.id != idDeletedCategory
         );
         this.allOperations = this.allOperations.filter((operation) => {
           if (operation.idCategory != idDeletedCategory) {

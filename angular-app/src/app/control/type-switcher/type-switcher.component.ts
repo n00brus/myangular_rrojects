@@ -1,5 +1,7 @@
+import { rendererTypeName } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OperationTypeCode } from '../models/category.model';
+import { OPERATION_TYPES } from '../data/type-switcher-data';
+import { OperationType, OperationTypeCode } from '../models/category.model';
 
 @Component({
   selector: 'app-type-switcher',
@@ -13,8 +15,18 @@ export class TypeSwitcherComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  types = OPERATION_TYPES;
 
-  selectType(type: OperationTypeCode, ev): void {
+  selectType(type: OperationTypeCode): void {
     this.changeSelectedType.emit(type);
+  }
+  getcolor(code: OperationType) {
+    if (code.code == 'consumption' && this.selectedType == code.code) {
+      return 'lightcoral';
+    } else if (code.code == 'profit' && this.selectedType == code.code) {
+      return '#01D9F2';
+    } else {
+      return '#AFBFCA';
+    }
   }
 }

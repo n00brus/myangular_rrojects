@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { allCategories } from '../data/categories.data';
+// import { allCategories } from '../data/categories.data';
 import { Category, OperationTypeCode } from '../models/category.model';
 import { Operation } from '../models/operations.model';
 import { OperationService } from '../services/operation/operation.service';
@@ -9,9 +9,10 @@ import { OperationService } from '../services/operation/operation.service';
   styleUrls: ['./all-operations.component.css'],
 })
 export class AllOperationsComponent implements OnInit {
-  @Input() selectedType: OperationTypeCode;
   @Input() allOperations: Operation[];
   @Input() allCategories: Category[];
+  @Input() selectedType: OperationTypeCode;
+
   @Output() deleteOperation = new EventEmitter();
   @Output() selectedOperation = new EventEmitter();
   operations: Operation[] = [];
@@ -41,8 +42,9 @@ export class AllOperationsComponent implements OnInit {
     });
   }
   categorylist() {
-    this.filteroperations();
     if (+this.categoryid == -1) {
+      this.filteroperations();
+
       return;
     }
     this.operations = [];
@@ -59,18 +61,11 @@ export class AllOperationsComponent implements OnInit {
     this.selectedOperation.emit(operation);
   }
   findCategory(operation) {
-    // console.log(operation);
-    // console.log(this.allCategories);
-    // console.log(this.categories);
-
     let something = this.categories.find((e) => {
-      // console.log(e);
-
       if (e.id == operation.idCategory) {
         return e;
       }
     });
-    // console.log(something);
 
     return something.name;
   }

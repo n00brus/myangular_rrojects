@@ -9,7 +9,7 @@ import { OperationService } from '../services/operation/operation.service';
   styleUrls: ['./operation-editor.component.css'],
 })
 export class OperationEditorComponent implements OnInit {
-  @Input() selectedCategory: Category;
+  @Input() selectedCategory: Category = { id: 1, type: 'profit', name: 'ds' };
   @Input() selectedType: OperationTypeCode;
   @Input() set selectedOperation(operation: Operation) {
     this.Operation = operation;
@@ -26,9 +26,7 @@ export class OperationEditorComponent implements OnInit {
   ngOnInit(): void {}
   addOperation(): void {
     this.newoperationobject = {
-      type: this.selectedType,
-      category: this.selectedCategory.name,
-      categoryid: Number,
+      categoryid: this.selectedCategory.id,
       value: this.money,
       description: this.description,
     };
