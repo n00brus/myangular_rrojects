@@ -10,4 +10,5 @@ export interface Operation {
   idCategory: number;
   value: number;
   description: string;
+  selected?: boolean;
 }

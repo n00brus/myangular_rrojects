@@ -1,6 +1,7 @@
-<div class="someclass">
+<div class="app__type-switcher">
 
-  <div *ngFor="let type of types" (click)="selectType(type.code)" class="type" [ngStyle]="{ color: getcolor(type)}">
+  <div *ngFor="let type of types" class="app__type" (click)="selectType(type.code)"
+    [ngStyle]="{ color: getcolor(type)}">
 
     {{ type.title }}
   </div>
@@ -12,4 +13,5 @@
     [ngStyle]="{ color: selectedType == 'consumption' ? 'red' : '#AFBFCA' }">
     Расход
   </div> -->
+</div>
 </div>

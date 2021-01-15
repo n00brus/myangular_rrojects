@@ -1,47 +1,51 @@
-* {
-  box-sizing: border-box;
+*{
+    box-sizing: border-box;
 }
-.category {
-  cursor: default;
-  height: 70px;
-  width: 300px;
-  padding-top: 20px;
-  text-align: center;
-  color: #414141;
-  font-size: 25px;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.category-block {
-  width: 300px;
-  max-height: 700px;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  //   justify-content: space-between;
-  align-items: center;
-  // flex-wrap: wrap;
-  color: #414141;
-  overflow: auto;
-}
-.newCategory {
-  background-image: url(../images/plus.jpeg);
-  height: 25px;
-  width: 25px;
-  background-repeat: no-repeat;
-  background-size: contain;
+.app__category{
+    cursor: default;
+    height: 70px;
+    width: 250px;
+    text-align: center;
+    color: #414141;
+    font-size: 18px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  margin: 0 auto;
 }
-.newCategory-input {
-  font-size: 22px;
+.app__allcategories{
+    width: 250px;
+    height: 500px;
+    font-size: 8px;
+    margin-top: 40px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+// flex-wrap: wrap;
+color: #414141;
+overflow: auto;
+
 }
-.deleteCategory {
-  background-image: url(../images/cancel.svg);
-  height: 20px;
-  width: 20px;
-  background-repeat: no-repeat;
-  background-size: contain;
+.app__newCategory{
+
+ background-image: url(../images/plus.jpeg);
+ height: 25px;
+ width: 25px;
+ background-repeat: no-repeat;
+ background-size: contain;
+
+    margin: 0 auto;
+    
+}
+.app_newCategory-input{
+    font-size: 18px;
+}
+.app__category-delete{
+    background-image: url(../images/cancel.svg);
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
 }

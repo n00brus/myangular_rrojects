@@ -24,6 +24,12 @@ export class OperationService {
       newOperation
     );
   }
+  mergeOperation(operation): Observable<Operation> {
+    return this.http.patch<Operation>(
+      'http://localhost:3000/operations/' + operation.id,
+      operation
+    );
+  }
   deleteOperation(operationid): Observable<number> {
     return this.http.delete<number>(
       'http://localhost:3000/operations/' + operationid

@@ -86,13 +86,14 @@ export class ControlPageComponent implements OnInit {
         );
       });
   }
-  selectOperation(operation) {
-    this.categories.find((e) => {
-      if (e.id == operation.idCategory) {
-        return (this.selectedCategory = e);
-      }
+  mergeOperation(operation) {
+    this.operationsService.mergeOperation(operation).subscribe((smth) => {
+      this.allOperations.find((operation) => {
+        if ((smth = operation)) {
+          return smth;
+        }
+      });
     });
-    this.selectedOperation = operation;
   }
   deleteCategory(idDeletedCategory: number) {
     this.categoriesService

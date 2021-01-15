@@ -1,5 +1,12 @@
-.app-main {
-  display: flex;
+.app-main{
+    display: flex;
+   
 }
-.app {
+.app__type-switcher{
+    margin: 0 auto;
+    width: 200px;
 }
+.app{
+    width: 1200px;
+    margin: 0 auto;
+ }

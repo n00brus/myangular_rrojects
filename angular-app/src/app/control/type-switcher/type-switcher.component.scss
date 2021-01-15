@@ -1,13 +1,16 @@
-.type {
-  cursor: default;
-  width: 300px;
-  text-align: center;
-  color: #afbfca;
-  font-size: 40px;
+.app__type{
+    cursor: default;
+    width: 200px;
+    text-align: center;
+    color: #AFBFCA;
+    font-size: 25px;
+    font-weight: 900;
 }
-.someclass {
-  width: 600px;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 155px;
+.app__type-switcher{
+    margin: 0 auto;
+    width: 400px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

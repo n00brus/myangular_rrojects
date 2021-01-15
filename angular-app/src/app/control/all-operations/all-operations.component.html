@@ -1,4 +1,4 @@
-<div class="allOperations-block">
+<div class="app__allOperations">
 
     <div class="allOperations__header">Ваши {{this.getSelectedText()}}ы <br>
         <span class="allOperations__subheader">Выберите категорию </span>
@@ -7,20 +7,39 @@
             <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
         </select>
     </div>
-    <div class="allOperations">
+    <div class="app__allOperations__list">
         <div *ngFor="let operation1 of operations">
-            <div class="operation" (click)="selectOperation($event,operation1)">
-                <div class="operation-text">
-                    <div class="operation-text-header">{{findCategory(operation1)}}</div>
+            <div class="app__operation">
+
+                <div class="app__operation-info">
+                    <div class="app__operation-header">
+                        {{findCategory(operation1)}}
+                    </div>
 
 
-                    <div class="operation-text-description">{{operation1.description}}</div>
+                    <div>
+                        <form [formGroup]="profileForm">
+                            <span *ngIf="operation1.selected!=true"
+                                class="app__operation-description">{{operation1.description}}</span>
+                            <textarea *ngIf="operation1.selected==true" class="app__operation-description"
+                                formControlName="editedDescription">{{operation1.description}}</textarea>
+                        </form>
+
+                    </div>
 
                 </div>
-                <span class="deleteoperation" (click)="deleteOperations($event)"
+                <span *ngIf="operation1.selected!=true" class="app__operation-merge"
+                    (click)="selectOperation($event, operation1)" dataOperationid="{{operation1}}"></span>
+                <span *ngIf="operation1.selected ==true" class="app__operation-merged"
+                    (click)="mergeOperation($event,operation1)" dataOperationid="{{operation1}}">
+
+                </span>
+
+                <span class="app__operation-delete" (click)="deleteOperations($event)"
                     dataCategoryid="{{operation1.id}}"></span>
 
-                <div class="operation-value">{{operation1.value}} грн </div>
+
+                <div class="app__operation-value">{{operation1.value}} грн </div>
             </div>
         </div>
     </div>

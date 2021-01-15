@@ -1,71 +1,87 @@
-.allOperations-block {
-  padding: 20px;
-  height: 700px;
-  width: 300px;
+.app__allOperations {
+  padding: 0 20px 20px 20px;
+  height: 450px;
+  width: 450px;
+  margin-top: 40px;
   /* overflow: auto; */
-  /* word-wrap: break-word; */
+   /* word-wrap: break-word; */
 }
-.allOperations__header {
+.allOperations__header{
   font-style: normal;
-  font-weight: 300;
-  font-size: 25px;
-  height: 60px;
-  color: #a5abae;
+font-weight: 700;
+font-size: 20px;
+height: 50px;
+color: #A5ABAE;
 }
-.allOperations__subheader {
+.allOperations__subheader{
   font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
+font-weight: 300;
+font-size: 15px;
 
-  color: #a5abae;
+color: #A5ABAE;
 }
-.allOperations {
+.app__allOperations__list{
   overflow: auto;
-  height: 550px;
+  height: 100%;
 }
-.operation-text {
+.app__operation-info{
   width: 100%;
+ 
 }
-.operation {
-  height: 70px;
+.app__operation{
+  height: 80px;
   display: flex;
   align-items: center;
 }
-.operation-text-header {
+.app__operation-header{
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 19px;
-  color: #414141;
+font-weight: 900;
+font-size: 16px;
+
+width: 100%;
+height: 100%;
+
+color: #414141;
 }
-.operation-text-description {
+.app__operation-description{
   font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-  color: #929292;
-  padding-top: 5px;
+font-weight: normal;
+font-size: 12px;
+color: #929292;
+width: 100%;
+height: 100%;
+width: 200px;
+max-width: 320px;
+max-height: 50px;
+/* max-lines: 3; */
+
 }
-.operation-value {
+.app__operation-value{
   font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 12px;
-  color: #92d8ee;
-  padding-top: 5px;
+font-weight: 500;
+font-size: 15px;
+line-height: 12px;
+color: #92D8EE;
 }
-.operation:hover {
-  background: linear-gradient(
-    90deg,
-    #edf8ff 6.71%,
-    rgba(220, 239, 253, 0.07) 102.2%
-  );
+.app__operation:hover{
+  background: linear-gradient(90deg, #EDF8FF 6.71%, rgba(220, 239, 253, 0.07) 102.2%);
 }
-.deleteoperation {
+.app__operation-merged{
+width: 25px;
+height: 25px;
+background-color: red;
+}
+.app__operation-merge{
+  width: 25px;
+  height: 25px;
+  background-color: blue;
+  }
+.app__operation-delete{
   font-size: 8px;
   background-image: url(../images/cancel.jpeg);
   background-repeat: no-repeat;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   background-size: contain;
+}
 }

@@ -1,29 +1,18 @@
-<div class="category-block">
+<div class="app__allcategories">
+
   <div *ngFor="let category of categories">
-    <div
-      (click)="selectCategory(category, $event)"
-      class="category"
-      [ngStyle]="{
-        backgroundColor:
-          selectedCategory.name == category.name ? getcolor() : ''
-      }"
-    >
-      <span>{{ category.name }}</span>
+    <div (click)="selectCategory(category, $event)" class="app__category"
+      [ngStyle]="{backgroundColor: selectedCategory.name == category.name ? getcolor() : '' }">
+      <span>{{category.name}}</span>
 
       <!-- <span *ngIf="selectedCategory == category.name"> (Selected)</span> -->
-      <div
-        (click)="deleteCategory(category.id, $event)"
-        class="deleteCategory"
-      ></div>
+      <div (click)="deleteCategory(category.id, $event)" class="app__category-delete"></div>
     </div>
-  </div>
 
-  <!-- <div class="newCategory" (click)="addCategory()"> -->
+
+  </div>
 </div>
-<div class="newCategory" (click)="addCategory()"></div>
-<input
-  type="text"
-  [(ngModel)]="newCategoryName"
-  placeholder="Новая категория"
-  class="newCategory-input"
-/>
+<div class="app__newCategory" (click)="addCategory()">
+</div>
+<input type="text" [(ngModel)]="newCategoryName" placeholder="Новая категория" class="app_newCategory-input">
+<input type="text" [(ngModel)]="newCategoryName" placeholder="Новая категория" class="app_newCategory-input">

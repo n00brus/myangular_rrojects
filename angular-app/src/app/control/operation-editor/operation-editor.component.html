@@ -1,11 +1,11 @@
-<div class="mainblock"
+<div class="app__editor"
     [ngStyle]="{background: selectedType == 'profit' ? 'linear-gradient(234.51deg, #148BE7 0%, #26ECFD 100%)' : 'red' }">
-    <div class="mainblock-text" *ngIf="selectedCategory">{{this.selectedCategory.name}}</div>
+    <div class="app__editor__selectedcategory" *ngIf="selectedCategory">{{this.selectedCategory.name}}</div>
 
-    <input type="number" [(ngModel)]="money" class="mainblock-input">
+    <input type="number" [(ngModel)]="money" class="app__editor__input">
 
 
-    <div class="mainblock-text"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+    <div class="app__editor__selectedcategory"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M6.75 3.9375V14.0625" stroke="white" stroke-opacity="0.88" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -16,9 +16,10 @@
         Платеж</div>
 
 </div>
-<div class="description">
-    <button (click)="addOperation()" class="input-button">ADD</button>
-    <div class="description-text">Описание</div>
-    <textarea rows="3" [(ngModel)]="description" class="description-input"></textarea>
+<div class="app__editor-description">
+    <button (click)="addOperation()" class="app__input-button">ADD</button>
+    <div class="app__description__title">Описание</div>
+    <textarea rows="4" [(ngModel)]="description" class="app__description__input"></textarea>
 
+</div>
 </div>

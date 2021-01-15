@@ -5,7 +5,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { TypeSwitcherComponent } from './type-switcher/type-switcher.component';
 import { OperationEditorComponent } from './operation-editor/operation-editor.component';
 import { AllOperationsComponent } from './all-operations/all-operations.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriesService } from './services/categories/categories.service';
 import { OperationService } from './services/operation/operation.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,13 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
     OperationEditorComponent,
     AllOperationsComponent,
   ],
-  // HttpClientModule
   imports: [
     CommonModule,
     FormsModule,
     BrowserModule,
-    // import HttpClientModule after BrowserModule.
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   exports: [ControlPageComponent],
   providers: [CategoriesService, OperationService, HttpClientModule],
